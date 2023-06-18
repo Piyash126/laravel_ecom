@@ -1,0 +1,28 @@
+function countdownToMonth(targetMonth) {
+  // Get the current date
+  const currentDate = new Date();
+
+  // Set the target month and year
+  const targetDate = new Date(currentDate.getFullYear(), targetMonth - 1);
+
+  // Calculate the time difference in milliseconds
+  const timeDiff = targetDate - currentDate;
+
+  // Calculate the number of days, hours, minutes, and seconds
+  const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+  // Return the countdown as an object
+  return {
+    days,
+    hours,
+    minutes,
+    seconds
+  };
+}
+
+// Usage example: Countdown to December (month number: 12)
+const countdown = countdownToMonth(12);
+console.log(countdown);
